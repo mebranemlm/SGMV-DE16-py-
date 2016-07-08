@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="pySerpentin0PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>model.PermisoAccion</class>
+    <class>model.TramoCodigoElemento</class>
+    <class>model.ControlActividad</class>
+    <class>model.Personal</class>
+    <class>model.ContratoTramoPersonal</class>
+    <class>model.Cargo</class>
+    <class>model.Actividad</class>
+    <class>model.ControlActividadDetalle</class>
+    <class>model.Cliente</class>
+    <class>model.ContratoTramoActividad</class>
+    <class>model.CargoPermisoAccion</class>
+    <class>model.TipoActividad</class>
+    <class>model.Sector</class>
+    <class>model.Permiso</class>
+    <class>model.ClienteTipo</class>
+    <class>model.Accion</class>
+    <class>model.ContratoTramo</class>
+    <class>model.Usuario</class>
+    <class>model.Elemento</class>
+    <class>model.Tramo</class>
+    <class>model.CodigoElemento</class>
+    <class>model.Contrato</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_serpentin0?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>
