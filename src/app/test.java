@@ -5,6 +5,7 @@
  */
 package app;
 
+import bean.PermisoBean;
 import controller.PermisoJpaController;
 import java.util.Date;
 import javax.persistence.EntityManagerFactory;
@@ -12,6 +13,8 @@ import javax.persistence.Persistence;
 import model.Permiso;
 import model.Usuario;
 import util.uError;
+import util.uPass;
+import view.PrincipalGUI;
 
 /**
  *
@@ -21,12 +24,14 @@ public class test {
 
     static EntityManagerFactory emf=Persistence.createEntityManagerFactory("pySerpentin0PU");
     static PermisoJpaController cPermiso= new PermisoJpaController(emf);
+    static PermisoBean bPermiso=new PermisoBean();
+    static uError er=new uError();
     
     private static void permisoModificar(int cod, String desc){
         Permiso p= new Permiso(cod, desc, 'A', new Date(), new Date());
         //p.setUserId(new Usuario());
         try {
-            cPermiso.edit(p);   
+            bPermiso.edit(p);   
             System.out.println("Ok");
         } catch (Exception e) {
             new uError().printError(e);
@@ -34,33 +39,31 @@ public class test {
     }
     
     
-        private static void permisoCrear(String usuario){
-        Permiso p= new Permiso(0, usuario, 'A', new Date(), new Date());
-        //p.setUserId(new Usuario(null));
-        try {
-            cPermiso.create(p);   
-            System.out.println("Ok");
-        } catch (Exception e) {
-            new uError().printError(e);
-        }
+        private static void permisoCrear(String str){
+        Permiso p= new Permiso(0, str, 'A', new Date(), new Date());
+        Permiso op=new Permiso();
+            try {
+              op=bPermiso.create(p);   
+            } catch (Exception e) {
+                er.printError(e);
+            }
+            
+            System.out.println(op.getPermId());
+                  
+      
     }
+        
+        public static void md5(String str){
+            String p=new uPass().MD5(str);
+            System.out.println(p);
+        }
     
     public static void main(String[] args) {
-      //permisoModificar(1,"ACCION");
-
-//        permisoCrear("Cargo");
-//        permisoCrear("Cliente");
-//        permisoCrear("Cliente Tipo");
-//        permisoCrear("CodigoElemento");
-//        permisoCrear("Contrato");
-//        permisoCrear("ControlActividad");
-
-        permisoModificar(10,"Elemento");
-        permisoModificar(11,"Personal");
-        permisoModificar(12,"Sector");
-        permisoModificar(13,"Tipo Actividad");
-        permisoModificar(14,"Tramo");
-        // TODO code application logic here
+        //permisoCrear("Permiso3");
+         //permisoModificar(15,"Permiso02");
+         
+         //new JFPrincipalGUI().setVisible(true);
+         //md5("admin");
     }
     
 }
