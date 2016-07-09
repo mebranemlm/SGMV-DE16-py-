@@ -20,6 +20,26 @@ public class uDate {
        return dateFormat.format(date);
     }
     
+    public String dateTable(Date d){
+       DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+       return dateFormat.format(d);
+    }
+    
+    public Date tableToDate(String s) {
+        Date d= null;
+         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+         try {
+            d=dateFormat.parse(s);
+        } catch (Exception e) {
+             new uError().printError(e);
+        }
+         return d;
+    }
+//    public String dateTable(Date d){
+//       DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//       return dateFormat.format(d);
+//    }
+      
     public Date getDate(String str){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date=null;
